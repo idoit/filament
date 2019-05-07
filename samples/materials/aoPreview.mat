@@ -1,9 +1,9 @@
 material {
-    name : bakedTexture,
+    name : aoPreview,
     parameters : [
         {
             type : sampler2d,
-            name : albedo
+            name : luma
         }
     ],
     requires : [
@@ -18,6 +18,10 @@ material {
 fragment {
     void material(inout MaterialInputs material) {
         prepareMaterial(material);
-        material.baseColor.rgb = texture(materialParams_albedo, getUV0()).rgb;
+        float L = texture(materialParams_luma, getUV0()).r;
+        if (L == 0.0) {
+            discard;
+        }
+        material.baseColor.rgb = vec3(L);
     }
 }

@@ -32,6 +32,7 @@ add_mesh("assets/models/monkey/monkey.obj" "suzanne.filamesh")
 set(MATERIAL_SRCS
         materials/bakedColor.mat
         materials/bakedTexture.mat
+        materials/aoPreview.mat
         materials/aiDefaultMat.mat
         materials/aiDefaultTrans.mat
         materials/depthVisualizer.mat
